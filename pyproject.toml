@@ -1,0 +1,37 @@
+[project]
+name = "voice-assistant"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11,<=3.12"  # restrict to Python 3.11 or 3.12 for compatibility
+
+dependencies = [
+    "vosk==0.3.45",
+    "sounddevice==0.4.6",
+    "soundfile==0.12.1",
+    "librosa==0.9.1", # will pull NumPy 1.x on Python ≤3.12
+    # Remove all TensorFlow and ML-dtypes related packages
+    # --- TTS and LLM engines ---
+    "torch==2.7.1+cpu",
+    "torchaudio==2.7.1+cpu",
+    "kittentts @ https://github.com/KittenML/KittenTTS/releases/download/0.1/kittentts-0.1.0-py3-none-any.whl",
+    "ctransformers==0.2.27",
+    # --- Misc ---
+    "pyyaml==6.0.1",
+    "ollama>=0.5.2",
+    "fastapi>=0.116.1",
+    "uvicorn>=0.35.0",
+    "melotts",
+    "google-generativeai>=0.8.5",
+    "numpy>=1.26.4",
+]
+
+[[tool.uv.index]]
+name     = "pytorch-cpu"
+url      = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[tool.uv.sources]
+torch      = { index = "pytorch-cpu" }
+torchaudio = { index = "pytorch-cpu" }
+melotts = { git = "https://github.com/myshell-ai/MeloTTS.git" }
