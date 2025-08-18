@@ -1,26 +1,23 @@
 # ───────── Speech-to-text (offline) ─────────
-vosk==0.3.45
+# ───────── Speech-to-text (offline) ─────────
+torch==2.7.0
 
 # ───────── Audio I/O ─────────────────────────
 sounddevice==0.4.6
 soundfile==0.12.1
-librosa>=0.10          # pulls NumPy ≥ 2.3 automatically
+librosa==0.9.1           # Required by MeloTTS
 
-# ───────── Moonshine / TensorFlow nightly ────
-tf-nightly
-tensorflow-text-nightly ; platform_system!="Windows"   # skip on Windows
-keras>=3,<4
+# ───────── Moons
 
 # ───────── LLM engine ────────────────────────
 ctransformers==0.2.27
 
-# ───────── Text-to-speech (Coqui) ────────────
-coqui-tts==0.27.0      # needs Torch ≥ 2.6
-torch==2.7.1+cpu       # CPU wheel; swap “+cpu” → “+cu121” for CUDA
-torchaudio==2.7.1+cpu
+# ───────── Text-to-speech (MeloTTS) ─────────
+git+https://github.com/myshell-ai/MeloTTS.git
 
 # ───────── Misc ──────────────────────────────
 pyyaml==6.0.1
+
 
 # ───────── Web server ────────────────────────
 fastapi==0.111.0

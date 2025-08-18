@@ -23,14 +23,20 @@ from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn 
 
-
 from melo.api import TTS  # pip install git+https://github.com/myshell-ai/MeloTTS.git
 from pydantic import BaseModel
 from starlette.websockets import WebSocketState
 
+import MeCab
+import unidic
+print(unidic.DICDIR)  # should show the installed dic path
+tagger = MeCab.Tagger(f"-d {unidic.DICDIR}")
+
 
 # https://huggingface.co/myshell-ai/MeloTTS-English
-
+# 
+import nltk
+nltk.download('averaged_perceptron_tagger_eng')
 
 LOG = logging.getLogger("backend")
 
