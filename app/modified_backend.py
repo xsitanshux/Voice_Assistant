@@ -257,7 +257,16 @@ from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from starlette.websockets import WebSocketState
+from pathlib import Path
+import subprocess
+import unidic
 
+# Check if Unidic is installed
+dic_path = Path(unidic.DICDIR) / "dicrc"
+if not dic_path.exists():
+    print("[startup] Unidic not found, downloading now...")
+    subprocess.run(["python", "-m", "unidic", "download"], check=True)
+# Initialize MeCab
 # If your Melo build expects MeCab/UniDic, keep these lines.
 import MeCab
 import unidic

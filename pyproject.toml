@@ -29,5 +29,4 @@ dependencies = [
 
 [tool.uv.sources]
 melotts = { git = "https://github.com/myshell-ai/MeloTTS.git" }
-[tool.uv.scripts]
-unidic = "python -m unidic download"
+
