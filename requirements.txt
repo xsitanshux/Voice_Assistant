@@ -1,6 +1,8 @@
 # ───────── Speech-to-text (offline) ─────────
 # ───────── Speech-to-text (offline) ─────────
 torch==2.7.0
+mecab-python3>=1.0.8
+unidic-lite>=1.0.8
 
 # ───────── Audio I/O ─────────────────────────
 sounddevice==0.4.6

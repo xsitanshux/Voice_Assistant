@@ -14,6 +14,8 @@ dependencies = [
   "ollama>=0.5.2",
   "fastapi==0.111.0",
   "uvicorn==0.29.0",
+  "mecab-python3>=1.0.8",
+  "unidic>=1.1.0",
   "google-generativeai>=0.8.5",
   "numpy>=1.26.4",
   # PyTorch + torchaudio (plain wheels, no +cpu suffix)
@@ -27,3 +29,5 @@ dependencies = [
 
 [tool.uv.sources]
 melotts = { git = "https://github.com/myshell-ai/MeloTTS.git" }
+[tool.uv.scripts]
+unidic = "python -m unidic download"

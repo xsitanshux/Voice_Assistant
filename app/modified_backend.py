@@ -261,7 +261,7 @@ from starlette.websockets import WebSocketState
 # If your Melo build expects MeCab/UniDic, keep these lines.
 import MeCab
 import unidic
-_ = MeCab.Tagger(f"-d {unidic.DICDIR}")  # ensure dictionary is discoverable
+tagger = MeCab.Tagger(f"-r /dev/null -d {unidic.DICDIR}") # ensure dictionary is discoverable
 
 from melo.api import TTS  # pip install git+https://github.com/myshell-ai/MeloTTS.git
 
